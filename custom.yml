@@ -1,45 +1,31 @@
 feeds:
-  - name: ipq807x
-    path: ../../feeds/ipq807x
-  - name: wifi_ax
-    path: ../../feeds/wifi-ax
-  - name: gl_feeds_common
-    uri: https://github.com/gl-inet/gl-feeds.git
-    revision: f86ec7f77b7a36c96a9b5a9b7fea30ccc9ac5fe6
-  - name: luci
-    uri: https://github.com/openwrt/luci.git
-    revision: 1c3b32dc1bec15e3076a447762b1c4f94eb75fb7
-  - name: kenzok8_packages
-    uri: https://github.com/kenzok8/openwrt-packages.git
+  - name: custom
+    path: ../feeds_dir/custom
+  - name: helloworld
+    uri: https://github.com/fw876/helloworld.git
     branch: master
-    revision: e5bf68c51700f1a3093a28e850858f35fa3aa0f3
-  - name: immortalwrt_luci
-    uri: https://github.com/immortalwrt/luci.git
-    branch: openwrt-21.02
-    revision: 7d560d7ca9889d3f83efe0ad18d4bf836c959de2
-  - name: small_package
-    uri: https://github.com/kenzok8/small-package.git
-    branch: main
-    revision: 0f5a553669da5875259c445bcc5b8e21b6511846
-include: []
 packages:
-  - kmod-hwmon-pwmfan
-  - kmod-gl-sdk4-fan
-  - wireless-regdb
-  - wget-ssl
-  - kmod-wireguard-backport
-  - luci-theme-argon
-  - luci-app-argon-config
-  - luci-app-ramfree
-  - luci-app-wol
-  - luci-app-diskman
-  - luci-app-smartdns
-  - luci-app-openclash
-  - luci-app-aria2
-  - luci-app-zerotier
-  - luci-app-turboacc
-  - luci-app-xlnetacc
-  - luci-app-cpufreq
-  - luci-app-ttyd
-  - luci-app-serverchan
-  - luci-app-transmission
+  - luci-app-ssr-plus
+  - luci-app-ddns
+  - ddns-scripts
+  - ddns-scripts-services
+  - ddns-scripts_aliyun
+  - luci-app-uhttpd
+  - dnsmasq-full
+  - luci-app-commands
+  - luci-app-mwan3
+  - luci-app-wireguard
+  - wireguard
+  - luci-app-eqos
+  - wireguard-tools
+
+
+
+diffconfig: |
+  CONFIG_PACKAGE_wpad-basic=n
+  CONFIG_PACKAGE_wpad=n
+  CONFIG_PACKAGE_dnsmasq=n
+  CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
+  CONFIG_LUCI_LANG_zh_Hans=y
+  CONFIG_BUSYBOX_CUSTOM=y
+  CONFIG_BUSYBOX_CONFIG_FEATURE_FLOAT_SLEEP=y
